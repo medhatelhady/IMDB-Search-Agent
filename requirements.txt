@@ -1,0 +1,40 @@
+# Core
+python-dotenv
+pydantic
+
+# Data Processing
+pandas
+numpy
+matplotlib
+
+# Database (PostgreSQL + pgvector)
+psycopg2-binary
+sqlalchemy
+pgvector
+
+# LLM & Agent
+langchain
+langchain-openai
+langchain-community
+langgraph
+langgraph-checkpoint-postgres
+openai
+
+# Embeddings (local)
+sentence-transformers
+
+# Fuzzy Matching
+rapidfuzz
+
+# API
+fastapi
+uvicorn[standard]
+
+# UI
+streamlit
+
+# Testing
+pytest
+
+# Optional: Ollama support
+langchain-ollama
