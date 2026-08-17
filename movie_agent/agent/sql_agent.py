@@ -25,7 +25,14 @@ from langgraph.checkpoint.memory import InMemorySaver
 
 from movie_agent.config import DATABASE_URL
 from movie_agent.agent.prompts import SQL_AGENT_PROMPT
+from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+
+from langchain_community.utilities import SQLDatabase
+from langchain_community.agent_toolkits import SQLDatabaseToolkit
+from langchain_community.agent_toolkits.sql.base import create_sql_agent
 
 def _build_agent():
     """Build and return the SQL agent."""
@@ -35,8 +42,6 @@ def _build_agent():
     llm = ChatOpenAI(
         model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
         temperature=0,
-        base_url = "https://openai.vocareum.com/v1",
-        api_key = "voc-46640206319004520369916a7f3655c69c53.81266809"
     )
 
     tools = [

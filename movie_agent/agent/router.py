@@ -15,7 +15,10 @@ from movie_agent.agent.semantic_search_agent import ask as semantic_ask
 from movie_agent.agent.fuzzy_search_agent import ask as fuzzy_ask
 from movie_agent.agent.prompts import ROUTER_AGENT_PROMPT
 
+from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 # ============================================================
 # Tools that wrap the sub-agents
 # ============================================================

@@ -11,7 +11,10 @@ from langgraph.checkpoint.memory import InMemorySaver
 from movie_agent.config import DATABASE_URL
 from movie_agent.search.semantic import semantic_search
 from movie_agent.agent.prompts import SEMANTIC_SEARCH_AGENT_PROMPT
+from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 # ============================================================
 # Tool definition
@@ -61,8 +64,6 @@ def _build_agent():
     llm = ChatOpenAI(
         model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
         temperature=0,
-        base_url="https://openai.vocareum.com/v1",
-        api_key="voc-46640206319004520369916a7f3655c69c53.81266809",
     )
 
     tools = [search_movies_by_description]
